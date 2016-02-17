@@ -1,7 +1,11 @@
 import React from 'react'
 
-const App = ({}, {}) => {
- return <div>App!</div>
+import { Grid } from 'react-bootstrap'
+
+const App = ({ children }, {}) => {
+ return <Grid fluid width="device-width">
+    {children}
+ </Grid>
 }
 
 export default App
