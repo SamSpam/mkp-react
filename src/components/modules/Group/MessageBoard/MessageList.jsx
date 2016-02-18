@@ -1,14 +1,21 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 
 import { form, Input, ButtonInput } from 'react-bootstrap'
 
-import Header from '../../../shared/Header.jsx'
-import Footer from '../../../shared/Footer.jsx'
+import { addIndex, map } from 'ramda'
 
-const MessageList = ({}, {}) => {
-  return <div>
+const mapIndexed = addIndex(map)
 
-  </div>
+const MessageList = ({ chat }, {}) => {
+  const chatMessages = mapIndexed((m, i) => {
+    return <li key={i}>{m}</li>
+  }, chat)
+
+  return <ul>{chatMessages}</ul>
+}
+
+MessageList.propTypes = {
+  chat: PropTypes.array
 }
 
 export default MessageList

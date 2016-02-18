@@ -1,15 +1,33 @@
-import React from 'react'
+import React, { PropTypes } from 'react'
 
-import { form, Input, Button, buttonAfter } from 'react-bootstrap'
+import { form, Input, Button, buttonAfter, Well } from 'react-bootstrap'
 
-const innerButton = <Button>Send</Button>;
+const sendMessage = (e) => {
+  if (e.keyCode === 13) {
+    const input = document.getElementById('message-input')
+    store.dispatch( { type: 'SEND', message: input.value })
 
-const MessageInput = ({}, {}) => {
+    input.value = ''
+    input.focus()
+  }
+}
+
+const MessageInput = ({ store }, {}) => {
   return <div>
-      <form>
-        <Input type="textarea" placeholder="Compose message... "  buttonAfter={innerButton} />
-      </form>
-  </div>
-};
+    <Well className="message-input">
+        <Input
+          id='message-input'
+          type="textarea"
+          placeholder="Compose message..."
+          onKeyUp={sendMessage}
+        />
+        <div>Press Enter to Send</div>
+        </Well>
+      </div>
+}
 
-export default MessageInput;
+MessageInput.propTypes = {
+  store: PropTypes.object.isRequired
+}
+
+export default MessageInput

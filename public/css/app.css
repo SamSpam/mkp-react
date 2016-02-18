@@ -34,6 +34,10 @@ header.row {
   background-color: #f5f5f5;
 }
 
+.footer .row {
+  margin-bottom: 0
+}
+
 .container {
   width: auto;
   max-width: 680px;
@@ -41,6 +45,14 @@ header.row {
 }
 .container .text-muted {
   margin: 20px 0;
+}
+
+.message-input {
+  margin-bottom: 0;
+  position: fixed;
+  bottom: 60px;
+  background-color: #f5f5f5;
+  width: 100%;
 }
 
 .circular {
@@ -94,8 +106,4 @@ h4 {
 hr {
   margin-top: 40px;
   margin-bottom: 40px;lg
-}
-
-.footer .row {
-  margin-bottom: 0
 }
